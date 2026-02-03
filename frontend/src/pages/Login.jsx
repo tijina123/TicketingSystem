@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import api from "../api/axios";
 import { useNavigate } from "react-router-dom";
 
@@ -7,6 +7,14 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+  const token = localStorage.getItem("access");
+  if (token) {
+    navigate("/tickets", { replace: true });
+  }
+}, []);
+
 
   const handleLogin = async (e) => {
     e.preventDefault(); 

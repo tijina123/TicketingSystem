@@ -4,10 +4,13 @@ export default function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleLogout = () => {
-    localStorage.clear();
-    navigate("/");
-  };
+ const   handleLogout = () => {
+  localStorage.clear();
+  window.location.replace("/");
+};
+
+
+
 
 
   const isActive = (path) => location.pathname === path;
